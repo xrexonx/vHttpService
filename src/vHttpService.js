@@ -4,6 +4,9 @@
  */
 var vHttp = (function () {
 
+    // Global Vue Http Object
+    var $http = Vue.http;
+
     var _url = '',
         _methods = 'POST',
         _data = {},
@@ -12,27 +15,27 @@ var vHttp = (function () {
         _options = {};
 
     function _get () {
-         Vue.http.get(_url, _oData, _options).then(_successCallback, _errorCallback);
+         $http.get(_url, _oData, _options).then(_successCallback, _errorCallback);
     }
 
     function _post () {
-         Vue.http.post(_url, _oData, _options).then(_successCallback, _errorCallback);
+         $http.post(_url, _oData, _options).then(_successCallback, _errorCallback);
     }
 
     function _put () {
-         Vue.http.put(_url, _oData, _options).then(_successCallback, _errorCallback);
+         $http.put(_url, _oData, _options).then(_successCallback, _errorCallback);
     }
 
     function _patch () {
-         Vue.http.patch(_url, _oData, _options).then(_successCallback, _errorCallback);
+         $http.patch(_url, _oData, _options).then(_successCallback, _errorCallback);
     }
 
     function _delete () {
-         Vue.http.delete(_url, _oData, _options).then(_successCallback, _errorCallback);
+         $http.delete(_url, _oData, _options).then(_successCallback, _errorCallback);
     }
 
     function _jsonp () {
-         Vue.http.jsonp(_url, _oData, _options).then(_successCallback, _errorCallback);
+         $http.jsonp(_url, _oData, _options).then(_successCallback, _errorCallback);
     }
 
     function _send (url, methods, data, sCb, eCb, opts) {
@@ -72,9 +75,8 @@ var vHttp = (function () {
         send : _send
     }
 
-
 })();
 
 if (typeof module !== "undefined") {
-	module.exports = vHttp;
+    module.exports = vHttp;
 }
