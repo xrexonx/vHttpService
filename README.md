@@ -1,11 +1,11 @@
 # readme ni
 
-TODO 
- -create test
- -minify files for distribution
- -add travis parker (yml)
- -publish to NPM and Bower
- -add instructions here for installation and usage
+TODO
+* create test
+* minify files for distribution
+* add travis parker (yml) for build passing badges.
+* publish to NPM and Bower
+* add instructions here for installation and usage
 
 
 ## License
