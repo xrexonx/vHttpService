@@ -12,5 +12,9 @@
     "javascripts"
   ],
   "author": "Rexon A. De los Reyes <rexondelosreyes88@gmail.com>",
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-copy-rex": "^1.2.5"
+  }
 }
