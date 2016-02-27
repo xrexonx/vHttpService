@@ -1,55 +1,57 @@
 /* Simple HTTP Service for Vue.js
- * By Rexon A. De los Reyes
+ * Rexon A. De los Reyes
+ * 02262016
  * MIT Licensed.
  */
 var vHttp = (function () {
 
-    // Global Vue Http Object
+    // Global Vue Http Object; won't be available w/o vue-resource.
     var $http = Vue.http;
 
-    var _url = '',
-        _methods = 'POST',
-        _data = {},
-        _successCallback = function () {},
-        _errorCallback = function () {},
-        _options = {};
+    // Property var
+    var _sUrl = '',
+        _sMethods = 'POST',
+        _oData = {},
+        _fnSuccessCallback = function () {},
+        _fnErrorCallback = function () {},
+        _oOptions = {};
 
     function _get () {
-         $http.get(_url, _oData, _options).then(_successCallback, _errorCallback);
+         $http.get(_sUrl, _oData, _oOptions).then(_fnSuccessCallback, _fnErrorCallback);
     }
 
     function _post () {
-         $http.post(_url, _oData, _options).then(_successCallback, _errorCallback);
+         $http.post(_sUrl, _oData, _oOptions).then(_fnSuccessCallback, _fnErrorCallback);
     }
 
     function _put () {
-         $http.put(_url, _oData, _options).then(_successCallback, _errorCallback);
+         $http.put(_sUrl, _oData, _oOptions).then(_fnSuccessCallback, _fnErrorCallback);
     }
 
     function _patch () {
-         $http.patch(_url, _oData, _options).then(_successCallback, _errorCallback);
+         $http.patch(_sUrl, _oData, _oOptions).then(_fnSuccessCallback, _fnErrorCallback);
     }
 
     function _delete () {
-         $http.delete(_url, _oData, _options).then(_successCallback, _errorCallback);
+         $http.delete(_sUrl, _oData, _oOptions).then(_fnSuccessCallback, _fnErrorCallback);
     }
 
     function _jsonp () {
-         $http.jsonp(_url, _oData, _options).then(_successCallback, _errorCallback);
+         $http.jsonp(_sUrl, _oData, _oOptions).then(_fnSuccessCallback, _fnErrorCallback);
     }
 
     function _send (url, methods, data, sCb, eCb, opts) {
 
-            _url = url;
-            _methods = methods;
+            _sUrl = url;
+            _sMethods = methods;
             _oData = JSON.stringify(data);
-            _successCallback = sCb;
-            _errorCallback = eCb;
-            _options = opts;
+            _fnSuccessCallback = sCb;
+            _fnErrorCallback = eCb;
+            _oOptions = opts;
 
-            var type = _methods.toLowerCase();
+            var sType = _sMethods.toLowerCase();
 
-            switch (type) {
+            switch (sType) {
                 case 'get':
                     _get();
                     break;
