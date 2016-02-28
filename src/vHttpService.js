@@ -16,32 +16,29 @@ var vHttp = (function () {
         _fnErrorCallback = function () {},
         _oOptions = {};
 
-    function _get () {
-         $http.get(_sUrl, _oData, _oOptions).then(_fnSuccessCallback, _fnErrorCallback);
-    }
-
-    function _post () {
-         $http.post(_sUrl, _oData, _oOptions).then(_fnSuccessCallback, _fnErrorCallback);
-    }
-
-    function _put () {
-         $http.put(_sUrl, _oData, _oOptions).then(_fnSuccessCallback, _fnErrorCallback);
-    }
-
-    function _patch () {
-         $http.patch(_sUrl, _oData, _oOptions).then(_fnSuccessCallback, _fnErrorCallback);
-    }
-
-    function _delete () {
-         $http.delete(_sUrl, _oData, _oOptions).then(_fnSuccessCallback, _fnErrorCallback);
-    }
-
-    function _jsonp () {
-         $http.jsonp(_sUrl, _oData, _oOptions).then(_fnSuccessCallback, _fnErrorCallback);
+    var _private = {
+        get : function () {
+             $http.get(_sUrl, _oData, _oOptions).then(_fnSuccessCallback, _fnErrorCallback);
+         },
+        post : function () {
+             $http.post(_sUrl, _oData, _oOptions).then(_fnSuccessCallback, _fnErrorCallback);
+         },
+        put : function () {
+             $http.put(_sUrl, _oData, _oOptions).then(_fnSuccessCallback, _fnErrorCallback);
+         },
+        patch : function () {
+             $http.patch(_sUrl, _oData, _oOptions).then(_fnSuccessCallback, _fnErrorCallback);
+         },
+        delete : function () {
+             $http.delete(_sUrl, _oData, _oOptions).then(_fnSuccessCallback, _fnErrorCallback);
+         },
+        jsonp : function () {
+             $http.jsonp(_sUrl, _oData, _oOptions).then(_fnSuccessCallback, _fnErrorCallback);
+         },
     }
 
     function _send (url, methods, data, sCb, eCb, opts) {
-
+        
             _sUrl = url;
             _sMethods = methods;
             _oData = JSON.stringify(data);
@@ -53,22 +50,22 @@ var vHttp = (function () {
 
             switch (sType) {
                 case 'get':
-                    _get();
+                    _private.get();
                     break;
                 case 'put':
-                    _put();
+                    _private.put();
                     break;
                 case 'patch':
-                    _patch();
+                    _private.patch();
                     break;
                 case 'delete':
-                    _delete();
+                    _private.delete();
                     break;
                 case 'jsonp':
-                    _jsonp();
+                    _private.jsonp();
                     break;
                 default:
-                     _post();
+                     _private.post();
                 break;
             }
     }
