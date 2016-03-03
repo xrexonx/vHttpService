@@ -1,4 +1,5 @@
-# readme ni
+# vHttpService
+Simple and lightweight Http Services for Vue.js
 
 TODO
 * create test
