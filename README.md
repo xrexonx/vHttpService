@@ -1,5 +1,5 @@
 # vHttpService
-Simple and lightweight Http Services for Vue.js
+Simple and lightweight Http Services for Vue.js.
 
 TODO
 * create test
