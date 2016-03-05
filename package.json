@@ -1,7 +1,7 @@
 {
   "name": "vhttpservice",
-  "version": "1.0.0",
-  "description": "Simple and lightweight Http Services for Vue.js _022616",
+  "version": "1.0.1",
+  "description": "Simple and lightweight Http Services for Vue.js _02262016",
   "main": "index.js",
   "keywords": [
     "vue",
